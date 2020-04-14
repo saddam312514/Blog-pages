@@ -1,0 +1,71 @@
+<%- include('../../partials/head.ejs') %> 
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <%- include('../../partials/sidebar.ejs') %> 
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+              
+              <div class="col-md-8 offset-md-2 my-5">
+                <h5>Recent Create post</h5>
+                  <div class="row">
+                      <% if(posts.length === 0) { %> 
+                        <div class="text-center text-muted">
+                            <p>The is no post Avail righ now</p>
+                        </div>
+
+                      <% } else { %> 
+                        <% for (let post of posts) { %> 
+                            <div class="card col-sm-5 m-2">
+                                <% if(post.thumbnail) { %> 
+                                    <img src="<%= post.thumbnail %> " alt="<%= post.title %> " class="card-img-top mt-3">
+
+                                <% } %> 
+                                <div class="card-body p-0">
+                                    <a href="/explorer/<%= post._id %> " style="color: black;">
+                                    <p class="my-2"><%= post.title %> </p>
+                                    </a>
+                                </div>
+                            </div>
+                            <% } %> 
+                      <% } %> 
+                  </div>
+              </div>
+            </div>
+
+            <div class="row">
+               
+                <div class="col-md-8 offset-md-2 my-5">
+                    <h5>Recent Create Bookmarks</h5>
+                    <div class="row">
+                        <% if(bookmarks.length === 0) { %> 
+                          <div class="text-center text-muted">
+                              <p>The is no books marks Avail righ now</p>
+                          </div>
+  
+                        <% } else { %> 
+                          <% for (let post of bookmarks) { %> 
+                              <div class="card col-sm-5 m-2">
+                                  <% if(post.thumbnail) { %> 
+                                      <img src="<%= post.thumbnail %> " alt="<%= post.title %> " class="card-img-top mt-3">
+  
+                                  <% } %> 
+                                  <div class="card-body p-0">
+                                      <a href="/explorer/<%= post._id %> " style="color: black;">
+                                      <p class="my-2"><%= post.title %> </p>
+                                      </a>
+                                  </div>
+                              </div>
+                              <% } %> 
+                        <% } %> 
+                    </div>
+                </div>
+              </div>
+        </div>
+        </div>
+<%- include('../../partials/footer.ejs') %> 
+
+</body>    
+</html>
